@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:platformconverter/Provider/changepageprovider.dart';
 import 'package:platformconverter/Provider/platform_provider.dart';
+import 'package:platformconverter/Views/Android/TapPage/contactpage.dart';
+import 'package:platformconverter/Views/Android/TapPage/homepage.dart';
+import 'package:platformconverter/Views/Android/TapPage/settingspage.dart';
 import 'package:provider/provider.dart';
 
 class HomePageMaterial extends StatefulWidget {
@@ -10,97 +14,61 @@ class HomePageMaterial extends StatefulWidget {
 }
 
 class _HomePageMaterialState extends State<HomePageMaterial> {
+  List<Widget> pageList = [
+    HomePage(),
+    SettingPage(),
+    ContactPage(),
+  ];
+  PageController pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        bottom: TabBar(
-          tabs: [
-            Tab(
-              icon: Icon(
-                Icons.person_add_alt,
-                size: 25,
-              ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: Provider.of<ChangeIndexProvider>(context, listen: true)
+              .changePageIndex
+              .index,
+          onTap: (val) {
+            Provider.of<ChangeIndexProvider>(context, listen: false)
+                .ChangeIndex(val: val);
+            pageController.animateToPage(val,
+                duration: Duration(microseconds: 150), curve: Curves.linear);
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
             ),
-            Tab(
-              child: Text(
-                "CHATS",
-                style: TextStyle(
-                  fontSize: 13,
-                ),
-              ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Contact",
             ),
-            Tab(
-              child: Text(
-                "CALLS",
-                style: TextStyle(
-                  fontSize: 13,
-                ),
-              ),
-            ),
-            Tab(
-              child: Text(
-                "SETTINGS",
-                style: TextStyle(
-                  fontSize: 13,
-                ),
-              ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: "Settings",
             ),
           ],
         ),
-        title: Text("Platform Converter"),
-        actions: [
-          Switch(
-            value: Provider.of<PlatformProvider>(context, listen: true)
-                .changePlatform
-                .isios,
-            onChanged: (val) {
-              Provider.of<PlatformProvider>(context, listen: false)
-                  .ConvertPlatform();
-            },
-          )
-        ],
-      ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              IndexedStack(
-                index: 0,
-                children: [
-                  Text(
-                    "add",
-                  )
-                ],
-              ),
-              IndexedStack(
-                index: 0,
-                children: [
-                  Text(
-                    "add",
-                  )
-                ],
-              ),
-              IndexedStack(
-                index: 0,
-                children: [
-                  Text(
-                    "add",
-                  )
-                ],
-              ),
-              IndexedStack(
-                index: 0,
-                children: [
-                  Text(
-                    "add",
-                  )
-                ],
-              ),
-            ],
-          )
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text("Platform Converter"),
+          actions: [
+            Switch(
+              value: Provider.of<PlatformProvider>(context, listen: true)
+                  .changePlatform
+                  .isios,
+              onChanged: (val) {
+                Provider.of<PlatformProvider>(context, listen: false)
+                    .ConvertPlatform();
+              },
+            )
+          ],
+        ),
+        body: PageView(
+          onPageChanged: (val) {
+            Provider.of<ChangeIndexProvider>(context, listen: false)
+                .ChangeIndex(val: val);
+          },
+          controller: pageController,
+          children: pageList,
+        ));
   }
 }
