@@ -16,8 +16,8 @@ class HomePageMaterial extends StatefulWidget {
 class _HomePageMaterialState extends State<HomePageMaterial> {
   List<Widget> pageList = [
     HomePage(),
-    SettingPage(),
     ContactPage(),
+    SettingPage(),
   ];
   PageController pageController = PageController();
   @override
