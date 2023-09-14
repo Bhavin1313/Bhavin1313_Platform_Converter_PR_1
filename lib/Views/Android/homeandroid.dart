@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:platformconverter/Provider/changepageprovider.dart';
 import 'package:platformconverter/Provider/platform_provider.dart';
-import 'package:platformconverter/Views/Android/TapPage/contactpage.dart';
-import 'package:platformconverter/Views/Android/TapPage/homepage.dart';
-import 'package:platformconverter/Views/Android/TapPage/settingspage.dart';
 import 'package:provider/provider.dart';
+
+import 'TabPage/contactpage.dart';
+import 'TabPage/homepage.dart';
+import 'TabPage/settingspage.dart';
 
 class HomePageMaterial extends StatefulWidget {
   const HomePageMaterial({super.key});

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platformconverter/Provider/changepageprovider.dart';
 import 'package:platformconverter/Provider/platform_provider.dart';
+import 'package:platformconverter/Utils/mytheam.dart';
 import 'package:platformconverter/Views/Ios/homeios.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +31,8 @@ void main() {
           (Provider.of<PlatformProvider>(context).changePlatform.isios == false)
               ? MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  theme: ThemeData(useMaterial3: true),
+                  theme: myTheam.lightTheme,
+                  darkTheme: myTheam.darkTheme,
                   themeMode:
                       (Provider.of<TheamProvider>(context).theamChange.isDark ==
                               false)
