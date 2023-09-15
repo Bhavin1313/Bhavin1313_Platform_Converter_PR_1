@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../../Provider/platform_provider.dart';
 import '../../../Provider/theam_provider.dart';
 
 class SettingPage extends StatefulWidget {
@@ -19,76 +16,48 @@ class _SettingPageState extends State<SettingPage> {
       body: Center(
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Icon(
-                    Icons.person,
-                  ),
+            ListTile(
+              leading: Icon(
+                Icons.person,
+              ),
+              title: Text("Profile"),
+              subtitle: Text(
+                "Update Profile data",
+                style: TextStyle(
+                  fontSize: 12,
                 ),
-                Expanded(
-                  flex: 4,
-                  child: Column(
-                    children: [
-                      Text("Profile"),
-                      Text(
-                        "Update Peofile data",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                // Expanded(
-                //   child: Switch(
-                //     value: Provider.of<TheamProvider>(context, listen: true)
-                //         .theamChange
-                //         .isDark,
-                //     onChanged: (val) {
-                //       Provider.of<TheamProvider>(context, listen: false)
-                //           .ChangeTheam();
-                //     },
-                //   ),
-                // ),
-              ],
+              ),
+              // trailing: Switch(
+              //   value: Provider.of<TheamProvider>(context, listen: true)
+              //       .theamChange
+              //       .isDark,
+              //   onChanged: (val) {
+              //     Provider.of<TheamProvider>(context, listen: false)
+              //         .ChangeTheam();
+              //   },
+              // ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Icon(
-                    Icons.sunny,
-                  ),
+            ListTile(
+              leading: const Icon(
+                Icons.sunny,
+              ),
+              title: const Text("Theam"),
+              subtitle: const Text(
+                "Change Theme",
+                style: TextStyle(
+                  fontSize: 12,
                 ),
-                Expanded(
-                  flex: 4,
-                  child: Column(
-                    children: [
-                      Text("Theam"),
-                      Text(
-                        "Change Theme",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Switch(
-                    value: Provider.of<TheamProvider>(context, listen: true)
-                        .theamChange
-                        .isDark,
-                    onChanged: (val) {
-                      Provider.of<TheamProvider>(context, listen: false)
-                          .ChangeTheam();
-                    },
-                  ),
-                ),
-              ],
-            ),
+              ),
+              trailing: Switch(
+                value: Provider.of<TheamProvider>(context, listen: true)
+                    .theamChange
+                    .isDark,
+                onChanged: (val) {
+                  Provider.of<TheamProvider>(context, listen: false)
+                      .ChangeTheam();
+                },
+              ),
+            )
           ],
         ),
       ),

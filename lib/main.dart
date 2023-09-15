@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platformconverter/Provider/changepageprovider.dart';
 import 'package:platformconverter/Provider/platform_provider.dart';
+import 'package:platformconverter/Utils/iostheam.dart';
 import 'package:platformconverter/Utils/mytheam.dart';
 import 'package:platformconverter/Views/Ios/homeios.dart';
 import 'package:provider/provider.dart';
-
 import 'Provider/contact_provider.dart';
 import 'Provider/theam_provider.dart';
 import 'Views/Android/homeandroid.dart';
@@ -44,6 +44,14 @@ void main() {
                 )
               : CupertinoApp(
                   debugShowCheckedModeBanner: false,
+
+                  // theme: MaterialBasedCupertinoThemeData(
+                  //     materialTheme: (Provider.of<TheamProvider>(context)
+                  //                 .theamChange
+                  //                 .isDark ==
+                  //             false)
+                  //         ? IosTheam.darkTheme
+                  //         : IosTheam.darkTheme),
                   routes: {
                     '/': (ctx) => HomeIos(),
                   },
@@ -51,3 +59,5 @@ void main() {
     ),
   );
 }
+
+class AppTheme {}
