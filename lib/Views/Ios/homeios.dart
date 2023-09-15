@@ -4,6 +4,7 @@ import 'package:platformconverter/Provider/platform_provider.dart';
 import 'package:platformconverter/Views/Android/TabPage/contactpage.dart';
 import 'package:platformconverter/Views/Ios/TabPageIos/addcontactpage.dart';
 import 'package:platformconverter/Views/Ios/TabPageIos/contactpage.dart';
+import 'package:platformconverter/Views/Ios/TabPageIos/myhomepage.dart';
 import 'package:platformconverter/Views/Ios/TabPageIos/settingspage.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +18,7 @@ class HomeIos extends StatefulWidget {
 class _HomeIosState extends State<HomeIos> {
   List<Widget> pageListIos = [
     AddContactIos(),
-    HomeIos(),
+    myiospage(),
     ContactIos(),
     SettingsIos(),
   ];

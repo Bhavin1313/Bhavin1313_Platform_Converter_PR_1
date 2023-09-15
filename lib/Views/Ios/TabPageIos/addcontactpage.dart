@@ -26,16 +26,13 @@ class _AddContactIosState extends State<AddContactIos> {
           },
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Add Contact Page"),
-          Container(
-            height: 250,
-            width: 250,
-            color: CupertinoColors.activeGreen,
-          ),
-        ],
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Add Contact Page"),
+          ],
+        ),
       ),
     );
   }

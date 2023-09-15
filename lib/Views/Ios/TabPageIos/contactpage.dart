@@ -26,9 +26,11 @@ class _ContactIosState extends State<ContactIos> {
           },
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("Contact Page")],
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text("Contact Page")],
+        ),
       ),
     );
   }

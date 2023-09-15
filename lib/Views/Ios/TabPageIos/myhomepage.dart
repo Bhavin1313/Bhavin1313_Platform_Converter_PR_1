@@ -3,14 +3,14 @@ import 'package:provider/provider.dart';
 
 import '../../../Provider/platform_provider.dart';
 
-class HomeIos extends StatefulWidget {
-  const HomeIos({super.key});
+class myiospage extends StatefulWidget {
+  const myiospage({super.key});
 
   @override
-  State<HomeIos> createState() => _HomeIosState();
+  State<myiospage> createState() => _myiospageState();
 }
 
-class _HomeIosState extends State<HomeIos> {
+class _myiospageState extends State<myiospage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -26,11 +26,8 @@ class _HomeIosState extends State<HomeIos> {
           },
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Home Page"),
-        ],
+      child: Center(
+        child: Text("Home Page"),
       ),
     );
   }
