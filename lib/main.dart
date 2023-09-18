@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platformconverter/Provider/changepageprovider.dart';
 import 'package:platformconverter/Provider/platform_provider.dart';
-import 'package:platformconverter/Utils/iostheam.dart';
 import 'package:platformconverter/Utils/mytheam.dart';
 import 'package:platformconverter/Views/Ios/homeios.dart';
 import 'package:provider/provider.dart';
 import 'Provider/contact_provider.dart';
+import 'Provider/datetimeprovider.dart';
 import 'Provider/theam_provider.dart';
 import 'Views/Android/homeandroid.dart';
 
@@ -14,6 +14,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
+        ListenableProvider<datetimeprovider>(
+          create: (context) => datetimeprovider(),
+        ),
         ListenableProvider<ContactProvider>(
           create: (context) => ContactProvider(),
         ),
@@ -44,14 +47,18 @@ void main() {
                 )
               : CupertinoApp(
                   debugShowCheckedModeBanner: false,
-
-                  // theme: MaterialBasedCupertinoThemeData(
-                  //     materialTheme: (Provider.of<TheamProvider>(context)
-                  //                 .theamChange
-                  //                 .isDark ==
-                  //             false)
-                  //         ? IosTheam.darkTheme
-                  //         : IosTheam.darkTheme),
+                  theme: MaterialBasedCupertinoThemeData(
+                    materialTheme: (Provider.of<TheamProvider>(context)
+                                .theamChange
+                                .isDark ==
+                            false)
+                        ? ThemeData(
+                            brightness: Brightness.light,
+                          )
+                        : ThemeData(
+                            brightness: Brightness.dark,
+                          ),
+                  ),
                   routes: {
                     '/': (ctx) => HomeIos(),
                   },

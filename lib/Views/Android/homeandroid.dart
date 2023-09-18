@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:platformconverter/Provider/changepageprovider.dart';
 import 'package:platformconverter/Provider/platform_provider.dart';
+import 'package:platformconverter/Views/Android/TabPage/addcontactmaterial.dart';
 import 'package:provider/provider.dart';
 
 import 'TabPage/contactpage.dart';
@@ -16,6 +17,7 @@ class HomePageMaterial extends StatefulWidget {
 
 class _HomePageMaterialState extends State<HomePageMaterial> {
   List<Widget> pageList = [
+    AddContactMat(),
     HomePage(),
     ContactPage(),
     SettingPage(),
@@ -25,6 +27,9 @@ class _HomePageMaterialState extends State<HomePageMaterial> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.lightBlue,
+          unselectedItemColor: Colors.black,
+          unselectedLabelStyle: TextStyle(color: Colors.black),
           currentIndex: Provider.of<ChangeIndexProvider>(context, listen: true)
               .changePageIndex
               .index,
@@ -35,6 +40,10 @@ class _HomePageMaterialState extends State<HomePageMaterial> {
                 duration: Duration(microseconds: 150), curve: Curves.linear);
           },
           items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_add_alt_1),
+              label: "Add Contact",
+            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Home",

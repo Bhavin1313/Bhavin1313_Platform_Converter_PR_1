@@ -29,7 +29,7 @@ class _SettingsIosState extends State<SettingsIos> {
       child: Column(
         children: [
           SizedBox(
-            height: 100,
+            height: 90,
           ),
           CupertinoListTile(
             leading: Icon(
