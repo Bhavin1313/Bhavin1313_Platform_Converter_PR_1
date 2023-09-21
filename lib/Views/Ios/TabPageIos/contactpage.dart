@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../Provider/contact_provider.dart';
 import '../../../Provider/platform_provider.dart';
 
@@ -36,20 +34,26 @@ class _ContactIosState extends State<ContactIos> {
           itemCount: ContactProvider.ContactList.length,
           itemBuilder: (BuildContext context, int i) {
             return CupertinoListTile(
-              leading: CircleAvatar(
-                radius: 80,
+              leading: Container(
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: CupertinoColors.inactiveGray,
+                ),
               ),
-              title: Text(
-                  "${ContactProvider.ContactList[i].firstname} ${ContactProvider.ContactList[i].lastname}"),
+              title: Text("${ContactProvider.ContactList[i].fullname}"),
               subtitle: Text("${ContactProvider.ContactList[i].phonenumber}"),
-              trailing: IconButton(
-                onPressed: () async {
+              trailing: GestureDetector(
+                onTap: () async {
                   await launchUrl(
                     Uri.parse(
                         "tel:+91${ContactProvider.ContactList[i].phonenumber}"),
                   );
                 },
-                icon: Icon(CupertinoIcons.phone),
+                child: Icon(
+                  CupertinoIcons.phone,
+                ),
               ),
             );
           },

@@ -45,8 +45,8 @@ class _HomePageMaterialState extends State<HomePageMaterial> {
               label: "Add Contact",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
+              icon: Icon(Icons.chat),
+              label: "Chat Page",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),

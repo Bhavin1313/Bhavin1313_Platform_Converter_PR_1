@@ -35,9 +35,9 @@ class _HomeIosState extends State<HomeIos> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              CupertinoIcons.home,
+              CupertinoIcons.chat_bubble,
             ),
-            label: "Home",
+            label: "Chat",
           ),
           BottomNavigationBarItem(
             icon: Icon(

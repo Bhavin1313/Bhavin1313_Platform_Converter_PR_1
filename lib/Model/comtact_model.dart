@@ -1,13 +1,12 @@
 class Contact {
-  String firstname;
-  String lastname;
+  String fullname;
+  String chat;
   String phonenumber;
-  String email;
+  // String email;
 
   Contact({
-    required this.email,
+    required this.chat,
     required this.phonenumber,
-    required this.firstname,
-    required this.lastname,
+    required this.fullname,
   });
 }

@@ -25,13 +25,21 @@ class _ContactPageState extends State<ContactPage> {
             ),
             child: ListTile(
               onTap: () {
-                Navigator.pushNamed(context, 'detail',
-                    arguments: ContactProvider.ContactList[i]);
+                setState(() {
+                  BottomSheet(
+                    onClosing: () {},
+                    builder: (BuildContext context) {
+                      return Container(
+                        child: Text("Hello"),
+                      );
+                    },
+                  );
+                });
               },
               leading: CircleAvatar(
                 backgroundColor: Colors.lightBlue.withOpacity(.5),
                 child: Text(
-                  "${ContactProvider.ContactList[i].firstname[0]}",
+                  "${ContactProvider.ContactList[i].fullname[0]}",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -39,8 +47,7 @@ class _ContactPageState extends State<ContactPage> {
                   ),
                 ),
               ),
-              title: Text(
-                  "${ContactProvider.ContactList[i].firstname} ${ContactProvider.ContactList[i].lastname}"),
+              title: Text("${ContactProvider.ContactList[i].fullname}"),
               subtitle: Text("${ContactProvider.ContactList[i].phonenumber}"),
               trailing: IconButton(
                 onPressed: () async {

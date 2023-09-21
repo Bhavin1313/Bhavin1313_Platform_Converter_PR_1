@@ -20,17 +20,16 @@ class AddContactIos extends StatefulWidget {
 
 class _AddContactIosState extends State<AddContactIos> {
   ImagePicker picker = ImagePicker();
+
   XFile? image;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   int initialIndex = 0;
-  String firstname = "";
-  String lastname = "";
+  String fullname = "";
   String phonenumber = "";
-  String email = "";
-  TextEditingController firstnamec = TextEditingController();
-  TextEditingController lastnamec = TextEditingController();
+  String chat = "";
+  TextEditingController fullnamec = TextEditingController();
   TextEditingController phonenumberc = TextEditingController();
-  TextEditingController emailc = TextEditingController();
+  TextEditingController chatc = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -89,8 +88,12 @@ class _AddContactIosState extends State<AddContactIos> {
                   Transform.scale(
                     scale: 1.08,
                     child: CupertinoTextFormFieldRow(
-                      onSaved: (val) {},
-                      controller: firstnamec,
+                      onSaved: (val) {
+                        setState(() {
+                          fullname = val!;
+                        });
+                      },
+                      controller: fullnamec,
                       decoration: BoxDecoration(
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(4),
@@ -108,6 +111,11 @@ class _AddContactIosState extends State<AddContactIos> {
                   Transform.scale(
                     scale: 1.08,
                     child: CupertinoTextFormFieldRow(
+                      onSaved: (val) {
+                        setState(() {
+                          phonenumber = val!;
+                        });
+                      },
                       controller: phonenumberc,
                       keyboardType: TextInputType.number,
                       decoration: BoxDecoration(
@@ -127,7 +135,12 @@ class _AddContactIosState extends State<AddContactIos> {
                   Transform.scale(
                     scale: 1.08,
                     child: CupertinoTextFormFieldRow(
-                      controller: emailc,
+                      onSaved: (val) {
+                        setState(() {
+                          chat = val!;
+                        });
+                      },
+                      controller: chatc,
                       decoration: BoxDecoration(
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(4),
@@ -229,11 +242,13 @@ class _AddContactIosState extends State<AddContactIos> {
                   ),
                   CupertinoButton(
                     onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                      }
                       Contact c1 = Contact(
-                        email: email,
+                        chat: chat,
+                        fullname: fullname,
                         phonenumber: phonenumber,
-                        firstname: firstname,
-                        lastname: lastname,
                       );
                       Provider.of<ContactProvider>(context, listen: false)
                           .AddContact(add_contact: c1);

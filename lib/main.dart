@@ -14,6 +14,15 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
+        ListenableProvider<profileprovider>(
+          create: (context) => profileprovider(),
+        ),
+        ListenableProvider<profileprovider2>(
+          create: (context) => profileprovider2(),
+        ),
+        ListenableProvider<switchprovider>(
+          create: (context) => switchprovider(),
+        ),
         ListenableProvider<datetimeprovider>(
           create: (context) => datetimeprovider(),
         ),
