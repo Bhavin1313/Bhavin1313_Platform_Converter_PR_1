@@ -55,26 +55,10 @@ class _SettingsIosState extends State<SettingsIos> {
                   true)
               ? Column(
                   children: [
-                    // (Global.pic1 == '')
-                    //     ? CircleAvatar(
-                    //   radius: 55,
-                    //   child: Icon(CupertinoIcons.camera),
-                    // )
-                    //     : CircleAvatar(
-                    //   radius: 55,
-                    //   foregroundImage:
-                    //   FileImage(File(Global.pic as String)),
-                    // ),
+                   
                     const SizedBox(height: 10),
                     CupertinoButton(
-                      // onPressed: () async {
-                      //   final XFile? image = await Global.picker1
-                      //       .pickImage(source: ImageSource.camera);
-                      //   print(image!.path);
-                      //   setState(() {
-                      //     Global.pic1 = image.path as XFile?;
-                      //   });
-                      // },
+                    
                       onPressed: () {},
                       child: const Icon(
                         CupertinoIcons.camera,
