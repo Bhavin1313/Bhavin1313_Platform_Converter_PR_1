@@ -54,17 +54,7 @@ class _myiospageState extends State<myiospage> {
                   )
                 ],
               ),
-              // trailing: GestureDetector(
-              //   onTap: () async {
-              //     await launchUrl(
-              //       Uri.parse(
-              //           "tel:+91${ContactProvider.ContactList[i].phonenumber}"),
-              //     );
-              //   },
-              //   child: Icon(
-              //     CupertinoIcons.phone,
-              //   ),
-              // ),
+            
             );
           },
         ),
